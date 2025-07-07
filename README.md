@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<Funny game>
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
