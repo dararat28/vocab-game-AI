@@ -111,6 +111,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     #categorySelection button.number { background-color: #ff9800; }
     #categorySelection button.month { background-color: #9c27b0; }
     #categorySelection button.job { background-color: #607d8b; }
+    #categorySelection button.Dailyitems { background-color: #FFC0CB; }
 
     /* ซ่อนส่วนเกมตอนเลือกหมวด */
     #gameArea { display: none; }
