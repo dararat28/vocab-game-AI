@@ -151,6 +151,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <img src="https://img.icons8.com/color/96/000000/briefcase.png" alt="อาชีพ" />
       หมวดอาชีพ
     </button>
+
+    <button class="Dailyitems" onclick="selectCategory('Dailyitems')">
+      <img src="https://img.icons8.com/?size=100&id=9YMO8fBl5NCr&format=png&color=000000" alt="ของใช้ประจำวัน" />
+      หมวดของใช้ประจำวัน
+    </button>
   </div>
 
   <!-- หน้าเกมจับคู่คำศัพท์ -->
@@ -179,12 +184,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   // คำศัพท์แบ่งหมวด พร้อมรูปประกอบ
   const vocabularyByCategory = {
     color: [
-      {en:"red", th:"สีแดง", img:"https://img.icons8.com/color/96/000000/paint-palette.png"},
-      {en:"blue", th:"สีน้ำเงิน", img:"https://img.icons8.com/color/96/000000/blue.png"},
-      {en:"green", th:"สีเขียว", img:"https://img.icons8.com/color/96/000000/green.png"},
-      {en:"yellow", th:"สีเหลือง", img:"https://img.icons8.com/color/96/000000/yellow.png"},
-      {en:"black", th:"สีดำ", img:"https://img.icons8.com/color/96/000000/black.png"},
-      {en:"white", th:"สีขาว", img:"https://img.icons8.com/color/96/000000/white.png"}
+      {en:"red", th:"สีแดง", img:"https://img.icons8.com/?size=100&id=24801&format=png&color=FA5252"},
+      {en:"blue", th:"สีน้ำเงิน", img:"https://img.icons8.com/?size=100&id=24801&format=png&color=228BE6"},
+      {en:"green", th:"สีเขียว", img:"https://img.icons8.com/?size=100&id=24801&format=png&color=40C057"},
+      {en:"yellow", th:"สีเหลือง", img:"https://img.icons8.com/?size=100&id=24801&format=png&color=FAB005"},
+      {en:"black", th:"สีดำ", img:"https://img.icons8.com/?size=100&id=24801&format=png&color=1A1A1A"},
+      {en:"Brown", th:"สีน้ำตาล", img:"https://img.icons8.com/?size=100&id=24801&format=png&color=a52a2a"},
+      {en:"Gray", th:"สีเทา", img:"https://img.icons8.com/?size=100&id=24801&format=png&color=808080"},
+      {en:"Purple", th:"สีม่วง", img:"https://img.icons8.com/?size=100&id=24801&format=png&color=800080"},
+      {en:"Orange", th:"สีส้ม", img:"https://img.icons8.com/?size=100&id=24801&format=png&color=ffa500"},
+      {en:"Pink", th:"สีชมพู", img:"https://img.icons8.com/?size=100&id=24801&format=png&color=ff69b4"},
+      {en:"white", th:"สีขาว", img:"https://img.icons8.com/?size=100&id=24801&format=png&color=FFFFFF"}
     ],
     day: [
       {en:"Monday", th:"วันจันทร์", img:"https://img.icons8.com/color/96/000000/monday.png"},
@@ -229,9 +239,49 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       {en:"doctor", th:"หมอ", img:"https://img.icons8.com/color/96/000000/doctor-male.png"},
       {en:"teacher", th:"ครู", img:"https://img.icons8.com/color/96/000000/teacher.png"},
       {en:"engineer", th:"วิศวกร", img:"https://img.icons8.com/color/96/000000/engineer.png"},
-      {en:"police", th:"ตำรวจ", img:"https://img.icons8.com/color/96/000000/police-officer.png"},
+      {en:"police", th:"ตำรวจ", img:"https://img.icons8.com/?size=100&id=23311&format=png&color=000000"},
       {en:"chef", th:"พ่อครัว", img:"https://img.icons8.com/color/96/000000/chef-hat.png"},
-      {en:"farmer", th:"ชาวนา", img:"https://img.icons8.com/color/96/000000/farmer.png"}
+      {en:"Nurse", th:"พยาบาล", img:"https://img.icons8.com/?size=100&id=23303&format=png&color=000000"},
+      {en:"Architect", th:"สถาปนิก", img:"https://img.icons8.com/?size=100&id=wvDZbOqaJ5xa&format=png&color=000000"},
+      {en:"Firefighter", th:"นักดับเพลิง", img:"https://img.icons8.com/?size=100&id=AxzqSDqBZTtk&format=png&color=000000"},
+      {en:"Driver", th:"คนขับรถ", img:"https://img.icons8.com/?size=100&id=15127&format=png&color=000000"},
+      {en:"Pilot", th:"นักบิน", img:"https://img.icons8.com/?size=100&id=6kMO9OR3DURb&format=png&color=000000"},
+      {en:"Hairdresser", th:"ช่างทำผม", img:"https://img.icons8.com/?size=100&id=qGrhqZVFf9Lv&format=png&color=000000"},
+      {en:"Artist", th:"ศิลปิน", img:"https://img.icons8.com/?size=100&id=bQsb7zpH7aip&format=png&color=000000"},
+      {en:"Musician", th:"นักดนตรี", img:"https://img.icons8.com/?size=100&id=bQsb7zpH7aip&format=png&color=000000"},
+      {en:"Office worker", th:"พนักงานออฟฟิศ", img:"https://img.icons8.com/?size=100&id=12313&format=png&color=000000"},
+      {en:"Scientist", th:"นักวิทยาศาสตร์", img:"https://img.icons8.com/?size=100&id=axF5ww-Dydb8&format=png&color=000000"},
+      {en:"Lawyer", th:"ทนายความ", img:"https://img.icons8.com/?size=100&id=gzPnHDuFZxQe&format=png&color=000000"},
+      {en:"Accountant", th:"นักบัญชี", img:"https://img.icons8.com/?size=100&id=W9yu3iQzV6yb&format=png&color=000000"},
+      {en:"Programmer", th:"โปรแกรมเมอร์", img:"https://img.icons8.com/?size=100&id=UF--CfaVggaW&format=png&color=000000"},
+      {en:"farmer", th:"ชาวนา", img:"https://img.icons8.com/?size=100&id=7Nv2j8eVXfbQ&format=png&color=000000"}
+    ],
+    Dailyitems: [
+      {en:"Chair", th:"เก้าอี้", img:"https://img.icons8.com/?size=100&id=26126&format=png&color=000000"},
+      {en:"Table", th:"โต๊ะ", img:"https://img.icons8.com/?size=100&id=12841&format=png&color=000000"},
+      {en:"Bed", th:"เตียงนอน", img:"https://img.icons8.com/?size=100&id=tBfPbOPEAOl5&format=png&color=000000"},
+      {en:"Pillow", th:"หมอน", img:"https://img.icons8.com/?size=100&id=WNbFmwUYKJUk&format=png&color=000000"},
+      {en:"Towel", th:"ผ้าขนหนู", img:"https://img.icons8.com/?size=100&id=65870&format=png&color=000000"},
+      {en:"Mirror", th:"กระจก", img:"https://img.icons8.com/?size=100&id=vhClVTMTuM-7&format=png&color=000000"},
+      {en:"Clock", th:"นาฬิกา", img:"https://img.icons8.com/?size=100&id=PDgJoygWSQQF&format=png&color=000000"},
+      {en:"Television", th:"โทรทัศน์", img:"https://img.icons8.com/?size=100&id=hR36FNBgrSwz&format=png&color=000000"},
+      {en:"Fan", th:"พัดลม", img:"https://img.icons8.com/?size=100&id=4ayVrb75leay&format=png&color=000000"},
+      {en:"Air conditioner", th:"เครื่องปรับอากาศ", img:"https://img.icons8.com/?size=100&id=12384&format=png&color=000000"},
+      {en:"Refrigerator", th:"ตู้เย็น", img:"https://img.icons8.com/?size=100&id=12822&format=png&color=000000"},
+      {en:"Microwave", th:"ไมโครเวฟ", img:"https://img.icons8.com/?size=100&id=66304&format=png&color=000000"},
+      {en:"Washing machine", th:"เครื่องซักผ้า", img:"https://img.icons8.com/?size=100&id=f6dhmPnk2Nsj&format=png&color=000000"},
+      {en:"Lamp", th:"โคมไฟ", img:"https://img.icons8.com/?size=100&id=80486&format=png&color=000000"},
+      {en:"Toothbrush", th:"แปรงสีฟัน", img:"https://img.icons8.com/?size=100&id=80486&format=png&color=000000"},
+      {en:"Toothpaste", th:"ยาสีฟัน", img:"https://img.icons8.com/?size=100&id=QMRWchOPLiSf&format=png&color=000000"},
+      {en:"Soap", th:"สบู่", img:"https://img.icons8.com/?size=100&id=7HbRucZ6zhMo&format=png&color=000000"},
+      {en:"Shampoo", th:"แชมพู", img:"https://img.icons8.com/?size=100&id=6FNF24Ite4FM&format=png&color=000000"},
+      {en:"Bag", th:"กระเป๋า", img:"https://img.icons8.com/?size=100&id=vv0bEW7EQ0G9&format=png&color=000000"},
+      {en:"Pen", th:"ปากกา", img:"https://img.icons8.com/?size=100&id=Vk1hVre0P58T&format=png&color=000000"},
+      {en:"Notebook", th:"สมุด", img:"https://img.icons8.com/?size=100&id=B3ueFHOl3rWJ&format=png&color=000000"},
+      {en:"Scissors", th:"กรรไกร", img:"https://img.icons8.com/?size=100&id=51850&format=png&color=000000"},
+      {en:"Broom", th:"ไม้กวาด", img:"https://img.icons8.com/?size=100&id=LXsgrpCUK59c&format=png&color=000000"},
+      {en:"Bucket", th:"ถังน้ำ", img:"https://img.icons8.com/?size=100&id=81378&format=png&color=000000"},
+      {en:"Comb", th:"หวี", img:"https://img.icons8.com/?size=100&id=65853&format=png&color=000000"}
     ]
   };
 
