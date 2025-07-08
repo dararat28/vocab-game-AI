@@ -61,7 +61,6 @@ h1 {
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 12px;
 }
-
 .card {
   background-color: #1c1f26;
   border: 2px solid #2d333b;
@@ -75,6 +74,11 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.card img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
 }
 .card:hover {
  background-color: #2d333b;
