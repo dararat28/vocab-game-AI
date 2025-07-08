@@ -72,6 +72,7 @@ h1 {
   user-select: none;
   height: 80px;
   display: flex;
+  flex-direction: column; /* ✅ แนวตั้ง */
   align-items: center;
   justify-content: center;
 }
@@ -99,7 +100,11 @@ h1 {
 /* ปรับปุ่มควบคุม */
 .controls {
  margin-top: 20px;
- text-align: center;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 button {
  background-color: #4caf50;
