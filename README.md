@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1' />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>เกมจับคู่คำศัพท์</title>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -13,54 +13,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 </script>
   <style>
-    body {
- font-family: 'Sarabun', sans-serif;
- padding: 15px;
- background: #0d1117;
- color: white;
- margin: 0;
+ body {
+  font-family: 'Sarabun', sans-serif;
+  padding: 15px;
+  background: #0d1117;
+  color: white;
+  margin: 0;
+
+  /* ✅ จัดให้เนื้อหาอยู่กลางจอ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
-/* หัวข้อและหัวใจเวลา */
-h1 {
- color: white;
- font-size: 22px;
- text-align: center;
- margin-top: 10px;
+
+#gameArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
 }
-#progress-container {
- width: 100%;
- background-color: #2d333b;
- border-radius: 10px;
- overflow: hidden;
- height: 8px;
- margin: 10px 0;
-}
-#progress-bar {
- height: 100%;
- width: 30%;
- background: #ff4d4f;
- transition: width 0.5s ease;
-}
-/* timer & score */
-#timer, #score {
- font-size: 16px;
- margin: 5px 0;
- text-align: center;
-}
-/* ข้อความสถานะ */
-#message {
- font-size: 18px;
- color: #ff5252;
- text-align: center;
- min-height: 30px;
- margin-bottom: 10px;
-}
-/* กริดของคำศัพท์ */
+
+/* ✅ ปรับ container ให้อยู่กลางและจำกัดความกว้าง */
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 12px;
+  max-width: 600px;
+  width: 100%;
+  margin: 20px 0;
 }
+
+/* ✅ ปรับ .card เป็นแนวตั้ง รูปอยู่บนคำ */
 .card {
   background-color: #1c1f26;
   border: 2px solid #2d333b;
@@ -70,95 +55,60 @@ h1 {
   font-size: 18px;
   cursor: pointer;
   user-select: none;
-  height: 80px;
+  height: 120px;
   display: flex;
-  flex-direction: column; /* ✅ แนวตั้ง */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+
 .card img {
   width: 40px;
   height: 40px;
   margin-bottom: 8px;
 }
-.card:hover {
- background-color: #2d333b;
-}
-.card.correct {
- background-color: #43a047 !important;
- color: white;
- cursor: default;
-}
-.card.wrong {
- background-color: #e53935 !important;
- color: white;
-}
-.card.selected {
- background-color: #1e88e5 !important;
- color: white;
-}
-/* ปรับปุ่มควบคุม */
-.controls {
- margin-top: 20px;
-  text-align: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-button {
- background-color: #4caf50;
- color: white;
- font-size: 16px;
- padding: 10px 20px;
- border: none;
- border-radius: 10px;
- margin: 5px;
- cursor: pointer;
-}
-button:hover {
- background-color: #43a047;
-}
-/* หน้าเลือกหมวด */
+
+/* ✅ แก้ margin-center ที่ผิดใน #categorySelection */
 #categorySelection {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
- gap: 16px;
- margin-top: 30px;
- max-width: 800px;
- margin-left: center;
- margin-right: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-top: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
-#categorySelection button {
- background-color: #4caf50;
- color: white;
- font-size: 16px;
- padding: 12px;
- border: none;
- border-radius: 12px;
- text-align: center;
- transition: background-color 0.3s ease;
-}
-#categorySelection button img {
- width: 40px;
- height: 40px;
- margin-bottom: 8px;
-}
-/* Responsive */
+
+/* ✅ Responsive คงเดิม */
 @media (max-width: 480px) {
- .card {
-   padding: 15px;
-   font-size: 16px;
- }
- button {
-   width: 100%;
-   margin: 8px 0;
- }
- #categorySelection {
-   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
- }
- #categorySelection button {
-   font-size: 14px;
+  .card {
+    padding: 15px;
+    font-size: 16px;
+    height: auto;
+  }
+
+  .card img {
+    width: 36px;
+    height: 36px;
+  }
+
+  button {
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #categorySelection {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  #categorySelection button {
+    font-size: 14px;
+  }
     }
     #categorySelection button.color { background-color: #f44336; }
     #categorySelection button.day { background-color: #2196f3; }
