@@ -249,7 +249,11 @@ button:hover {
       <div class="column" id="thaiColumn"></div>
     </div>
   </div>
-
+  
+  <!-- ✅ เสียงถูก-ผิด -->
+  <audio id="correctSound" src="https://assets.mixkit.co/sfx/preview/mixkit-achievement-bell-600.mp3"></audio>
+  <audio id="wrongSound" src="https://assets.mixkit.co/sfx/preview/mixkit-wrong-answer-bass-buzzer-947.mp3"></audio>
+  
 <script>
   // คำศัพท์แบ่งหมวด พร้อมรูปประกอบ
   const vocabularyByCategory = {
@@ -474,14 +478,6 @@ button:hover {
     thList.forEach(item => addCard(item, 'th'));
   }
 
-  function playCorrectSound() {
-    speak("ถูกต้อง", "th-TH");
-  }
-
-  function playWrongSound() {
-    speak("ผิดแล้ว", "th-TH");
-  }
-
   function addCard(item, type) {
     const col = document.getElementById(type === 'en' ? 'englishColumn' : 'thaiColumn');
     const d = document.createElement("div");
@@ -498,6 +494,20 @@ button:hover {
     d.dataset.type = type;
     col.appendChild(d);
     return d;
+  }
+
+  function speak(text, lang = "en-US") {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = lang;
+    speechSynthesis.speak(utterance);
+  }
+
+  function playCorrectSound() {
+    document.getElementById("correctSound").play();
+  }
+
+  function playWrongSound() {
+    document.getElementById("wrongSound").play();
   }
 
   function handleSelect(el, val, type){
@@ -519,12 +529,9 @@ button:hover {
     el.classList.add("selected");
     selected.push({el, val, type});
 
-    // ✅ พูดอัตโนมัติเมื่อคลิก
-    if (type === "en") {
-      speak(val, "en-US");
-    } else if (type === "th") {
-      speak(val, "th-TH");
-    }
+    // ✅ พูดคำเมื่อคลิก
+    if(type === 'en') speak(val, 'en-US');
+    else speak(val, 'th-TH');
 
     if(selected.length === 2){
       const [a, b] = selected;
@@ -534,6 +541,7 @@ button:hover {
       );
 
       if(isMatch){
+        playCorrectSound();
         a.el.classList.add("correct");
         b.el.classList.add("correct");
         document.getElementById("message").textContent = "🎉 เก่งมาก!";
@@ -553,6 +561,7 @@ button:hover {
 
         }, 1000);
       } else {
+        playWrongSound();
         document.getElementById("message").textContent = "❌ ผิดแล้ว ลองใหม่!";
         a.el.classList.add("wrong");
         b.el.classList.add("wrong");
@@ -610,8 +619,7 @@ button:hover {
     utterance.lang = lang;
     speechSynthesis.cancel();
     speechSynthesis.speak(utterance);
-  }
-  
+  } 
 
 </script>
 <!-- Google Tag Manager (noscript) -->
