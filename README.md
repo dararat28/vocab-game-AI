@@ -593,7 +593,17 @@ button:hover {
     progressBar.style.width = progressPercent + "%";
   }
 
-  function renderWords(category) {
+  function speakWord(word, lang = 'en-US') {
+  if (!window.speechSynthesis) {
+    alert('เบราว์เซอร์ไม่รองรับการอ่านออกเสียง');
+    return;
+  }
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = lang;
+  window.speechSynthesis.speak(utterance);
+}
+
+function renderWords(category) {
   const englishColumn = document.getElementById("englishColumn");
   const thaiColumn = document.getElementById("thaiColumn");
   englishColumn.innerHTML = "<h2>English</h2>";
