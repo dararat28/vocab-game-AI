@@ -227,6 +227,10 @@ button:hover {
       หมวดของใช้ประจำวัน
     </button>
   </div>
+  <div class="container">
+  <div class="column" id="englishColumn"><h2>English</h2></div>
+  <div class="column" id="thaiColumn"><h2>ไทย</h2></div>
+  </div>
 
   <!-- หน้าเกมจับคู่คำศัพท์ -->
   <div id="gameArea">
@@ -588,6 +592,28 @@ button:hover {
     const progressBar = document.getElementById("progress-bar");
     progressBar.style.width = progressPercent + "%";
   }
+
+  function renderWords(category) {
+  const englishColumn = document.getElementById("englishColumn");
+  const thaiColumn = document.getElementById("thaiColumn");
+  englishColumn.innerHTML = "<h2>English</h2>";
+  thaiColumn.innerHTML = "<h2>ไทย</h2>";
+
+  vocabularyByCategory[category].forEach(word => {
+    const enDiv = document.createElement("div");
+    enDiv.className = "word";
+    enDiv.textContent = word.en;
+    enDiv.onclick = () => speakWord(word.en, 'en-US');
+
+    const thDiv = document.createElement("div");
+    thDiv.className = "word";
+    thDiv.textContent = word.th;
+    thDiv.onclick = () => speakWord(word.th, 'th-TH');
+
+    englishColumn.appendChild(enDiv);
+    thaiColumn.appendChild(thDiv);
+  });
+}
 </script>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NDDPMMML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
