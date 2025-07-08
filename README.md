@@ -57,11 +57,28 @@ h1 {
 }
 /* กริดของคำศัพท์ */
 .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 600px;
 }
-
+/* แต่ละคอลัมน์ให้กว้างเท่ากัน */
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+#gameArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* แนวตั้งกึ่งกลาง */
+  align-items: center;     /* แนวนอนกึ่งกลาง */
+  height: 100vh;           /* ความสูงเต็มหน้าจอ */
+  padding: 20px;
+  box-sizing: border-box;
+}
 .card {
   background-color: #1c1f26;
   border: 2px solid #2d333b;
@@ -75,6 +92,12 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.card img.icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+  vertical-align: middle;
 }
 .card:hover {
  background-color: #2d333b;
