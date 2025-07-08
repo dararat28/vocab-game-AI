@@ -474,6 +474,14 @@ button:hover {
     thList.forEach(item => addCard(item, 'th'));
   }
 
+  function playCorrectSound() {
+    speak("ถูกต้อง", "th-TH");
+  }
+
+  function playWrongSound() {
+    speak("ผิดแล้ว", "th-TH");
+  }
+
   function addCard(item, type) {
     const col = document.getElementById(type === 'en' ? 'englishColumn' : 'thaiColumn');
     const d = document.createElement("div");
@@ -603,6 +611,7 @@ button:hover {
     speechSynthesis.cancel();
     speechSynthesis.speak(utterance);
   }
+  
 
 </script>
 <!-- Google Tag Manager (noscript) -->
