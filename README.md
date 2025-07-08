@@ -251,8 +251,8 @@ button:hover {
   </div>
   
   <!-- ✅ เสียงถูก-ผิด -->
-  <audio id="correctSound" src="https://assets.mixkit.co/sfx/preview/mixkit-achievement-bell-600.mp3"></audio>
-  <audio id="wrongSound" src="https://assets.mixkit.co/sfx/preview/mixkit-wrong-answer-bass-buzzer-947.mp3"></audio>
+  <audio id="correctSound" src="https://pixabay.com/sound-effects/correct-choice-43861/"></audio>
+  <audio id="wrongSound" src="https://pixabay.com/sound-effects/wrong-47985/"></audio>
   
 <script>
   // คำศัพท์แบ่งหมวด พร้อมรูปประกอบ
