@@ -2,6 +2,7 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1' />
   <title>เกมจับคู่คำศัพท์</title>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -12,98 +13,141 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 </script>
   <style>
-    body { font-family: 'Sarabun', sans-serif; padding: 20px; background: #f0f0f0; }
-    h1 { color: #333; }
-    #progress-container {
-      width: 100%;
-      background-color: #ddd;
-      border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: 20px;
-      height: 20px;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,.2);
-    }
-    #progress-bar {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #4caf50, #81c784);
-      transition: width 0.5s ease;
-    }
-    #timer, #score { font-size: 20px; margin: 10px 0; }
-    #message { font-size: 22px; color: crimson; margin-top: 5px; min-height: 30px;}
-    .container { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
-    .column {
-      width: 45%;
-      background: #fff;
-      padding: 10px;
-      border-radius: 8px;
-      min-height: 400px;
-    }
-    .card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100px;
-      margin: 5px;
-      padding: 8px;
-      background: #e0e0e0;
-      border-radius: 6px;
-      cursor: pointer;
-      text-align: center;
-      font-size: 18px;
-      box-sizing: border-box;
-      user-select: none;
-      opacity: 1;
-      transition: opacity 1s ease;
-    }
-    .card.correct { background: #a5d6a7 !important; cursor: default; }
-    .card.wrong { background: #ef9a9a !important; }
-    .card.selected { background: #90caf9 !important; }
-    img.icon { width: 50px; height: 50px; margin-bottom: 5px; }
-    button {
-      padding: 8px 16px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-right: 10px;
-    }
-    .controls {
-      margin-bottom: 15px;
-    }
-    /* หน้าเลือกหมวดคำศัพท์ */
-    #categorySelection {
-      max-width: 800px;
-      margin: 50px auto;
-      text-align: center;
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-      gap: 20px;
-    }
-    #categorySelection button {
-      width: 180px;
-      padding: 10px;
-      font-size: 18px;
-      border-radius: 12px;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      color: white;
-      user-select: none;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    #categorySelection button:hover {
-      opacity: 0.85;
-    }
-    #categorySelection button img {
-      width: 70px;
-      height: 70px;
-      margin-bottom: 10px;
-      border-radius: 10px;
-      object-fit: contain;
+    body {
+ font-family: 'Sarabun', sans-serif;
+ padding: 15px;
+ background: #0d1117;
+ color: white;
+ margin: 0;
+}
+/* หัวข้อและหัวใจเวลา */
+h1 {
+ color: white;
+ font-size: 22px;
+ text-align: center;
+ margin-top: 10px;
+}
+#progress-container {
+ width: 100%;
+ background-color: #2d333b;
+ border-radius: 10px;
+ overflow: hidden;
+ height: 8px;
+ margin: 10px 0;
+}
+#progress-bar {
+ height: 100%;
+ width: 30%;
+ background: #ff4d4f;
+ transition: width 0.5s ease;
+}
+/* timer & score */
+#timer, #score {
+ font-size: 16px;
+ margin: 5px 0;
+ text-align: center;
+}
+/* ข้อความสถานะ */
+#message {
+ font-size: 18px;
+ color: #ff5252;
+ text-align: center;
+ min-height: 30px;
+ margin-bottom: 10px;
+}
+/* กริดของคำศัพท์ */
+.container {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 12px;
+ margin-top: 20px;
+}
+/* กล่องคำศัพท์ */
+.card {
+ background-color: #1c1f26;
+ border: 2px solid #2d333b;
+ border-radius: 12px;
+ padding: 20px;
+ text-align: center;
+ font-size: 18px;
+ cursor: pointer;
+ transition: background 0.2s ease;
+ user-select: none;
+}
+.card:hover {
+ background-color: #2d333b;
+}
+.card.correct {
+ background-color: #43a047 !important;
+ color: white;
+ cursor: default;
+}
+.card.wrong {
+ background-color: #e53935 !important;
+ color: white;
+}
+.card.selected {
+ background-color: #1e88e5 !important;
+ color: white;
+}
+/* ปรับปุ่มควบคุม */
+.controls {
+ margin-top: 20px;
+ text-align: center;
+}
+button {
+ background-color: #4caf50;
+ color: white;
+ font-size: 16px;
+ padding: 10px 20px;
+ border: none;
+ border-radius: 10px;
+ margin: 5px;
+ cursor: pointer;
+}
+button:hover {
+ background-color: #43a047;
+}
+/* หน้าเลือกหมวด */
+#categorySelection {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+ gap: 16px;
+ margin-top: 30px;
+ max-width: 800px;
+ margin-left: auto;
+ margin-right: auto;
+}
+#categorySelection button {
+ background-color: #4caf50;
+ color: white;
+ font-size: 16px;
+ padding: 12px;
+ border: none;
+ border-radius: 12px;
+ text-align: center;
+ transition: background-color 0.3s ease;
+}
+#categorySelection button img {
+ width: 60px;
+ height: 60px;
+ margin-bottom: 8px;
+}
+/* Responsive */
+@media (max-width: 480px) {
+ .card {
+   padding: 15px;
+   font-size: 16px;
+ }
+ button {
+   width: 100%;
+   margin: 8px 0;
+ }
+ #categorySelection {
+   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+ }
+ #categorySelection button {
+   font-size: 14px;
     }
     #categorySelection button.color { background-color: #f44336; }
     #categorySelection button.day { background-color: #2196f3; }
@@ -212,7 +256,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       {en:"bird", th:"นก", img:"https://img.icons8.com/color/96/000000/bird.png"},
       {en:"fish", th:"ปลา", img:"https://img.icons8.com/color/96/000000/fish.png"},
       {en:"elephant", th:"ช้าง", img:"https://img.icons8.com/color/96/000000/elephant.png"},
-      {en:"tiger", th:"เสือ", img:"https://img.icons8.com/color/96/000000/tiger.png"}
+      {en:"Lion", th:"สิงโต", img:"https://img.icons8.com/?size=100&id=120346&format=png&color=000000"},
+      {en:"Monkey", th:"ลิง", img:"https://img.icons8.com/?size=100&id=BZO3S6QnAZkQ&format=png&color=000000"},
+      {en:"Giraffe", th:"ยีราฟ", img:"https://img.icons8.com/?size=100&id=bUKN9UgJWlPm&format=png&color=000000"},
+      {en:"Zebra", th:"ม้าลาย", img:"https://img.icons8.com/?size=100&id=Fdqv3Y6oLK2y&format=png&color=000000"},
+      {en:"Cow", th:"วัว", img:"https://img.icons8.com/?size=100&id=bMylUSWbVIBr&format=png&color=000000"},
+      {en:"Pig", th:"หมู", img:"https://img.icons8.com/?size=100&id=16079&format=png&color=000000"},
+      {en:"Horse", th:"ม้า", img:"https://img.icons8.com/?size=100&id=16058&format=png&color=000000"},
+      {en:"Sheep", th:"แกะ", img:"https://img.icons8.com/?size=100&id=-OctKQmcB6pJ&format=png&color=000000"},
+      {en:"Goat", th:"แพะ", img:"https://img.icons8.com/?size=100&id=5o9eiPXnV4yx&format=png&color=000000"},
+      {en:"Bear", th:"หมี", img:"https://img.icons8.com/?size=100&id=qlYqIMUdIBvt&format=png&color=000000"},
+      {en:"Rabbit", th:"กระต่าย", img:"https://img.icons8.com/?size=100&id=8p9f015sw7er&format=png&color=000000"},
+      {en:"Deer", th:"กวาง", img:"https://img.icons8.com/?size=100&id=MYzbfCo8DDQe&format=png&color=000000"},
+      {en:"Crocodile", th:"จระเข้", img:"https://img.icons8.com/?size=100&id=2pO02-vVjy-O&format=png&color=000000"},
+      {en:"Duck", th:"เป็ด", img:"https://img.icons8.com/?size=100&id=30929&format=png&color=000000"},
+      {en:"Chicken", th:"ไก่", img:"https://img.icons8.com/?size=100&id=101707&format=png&color=000000"},
+      {en:"Fish", th:"ปลา", img:"https://img.icons8.com/?size=100&id=On7Klul3EITI&format=png&color=000000"},
+      {en:"tiger", th:"เสือ", img:"https://img.icons8.com/?size=100&id=I5OML1bajbP2&format=png&color=000000"}
     ],
     number: [
       {en:"one", th:"หนึ่ง", img:"https://img.icons8.com/color/96/000000/1-circle.png"},
@@ -220,7 +280,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       {en:"three", th:"สาม", img:"https://img.icons8.com/color/96/000000/3-circle.png"},
       {en:"four", th:"สี่", img:"https://img.icons8.com/color/96/000000/4-circle.png"},
       {en:"five", th:"ห้า", img:"https://img.icons8.com/color/96/000000/5-circle.png"},
-      {en:"six", th:"หก", img:"https://img.icons8.com/color/96/000000/6-circle.png"}
+      {en:"six", th:"หก", img:"https://img.icons8.com/color/96/000000/6-circle.png"},
+      {en:"Seven", th:"เจ็ด", img:"https://img.icons8.com/color/96/000000/7-circle.png"},
+      {en:"Eight", th:"แปด", img:"https://img.icons8.com/color/96/000000/8-circle.png"},
+      {en:"Nine", th:"เก้า", img:"https://img.icons8.com/color/96/000000/9-circle.png"},
+      {en:"Ten", th:"สิบ", img:"https://img.icons8.com/?size=100&id=71434&format=png&color=000000"}
     ],
     month: [
       {en:"January", th:"มกราคม", img:"https://img.icons8.com/color/96/000000/january.png"},
