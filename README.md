@@ -511,6 +511,13 @@ button:hover {
     el.classList.add("selected");
     selected.push({el, val, type});
 
+    // ✅ พูดอัตโนมัติเมื่อคลิก
+    if (type === "en") {
+      speak(val, "en-US");
+    } else if (type === "th") {
+      speak(val, "th-TH");
+    }
+
     if(selected.length === 2){
       const [a, b] = selected;
       const isMatch = matchDict.some(p =>
@@ -587,6 +594,14 @@ button:hover {
     const progressPercent = Math.min((score / maxScore) * 100, 100);
     const progressBar = document.getElementById("progress-bar");
     progressBar.style.width = progressPercent + "%";
+  }
+
+  // ✅ ฟังก์ชันพูดคำศัพท์
+  function speak(text, lang = 'en-US') {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = lang;
+    speechSynthesis.cancel();
+    speechSynthesis.speak(utterance);
   }
 
 </script>
