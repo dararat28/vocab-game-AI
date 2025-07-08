@@ -121,8 +121,8 @@ button:hover {
  gap: 16px;
  margin-top: 30px;
  max-width: 800px;
- margin-left: auto;
- margin-right: auto;
+ margin-left: center;
+ margin-right: center;
 }
 #categorySelection button {
  background-color: #4caf50;
