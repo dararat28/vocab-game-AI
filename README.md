@@ -67,12 +67,17 @@ h1 {
  background-color: #1c1f26;
  border: 2px solid #2d333b;
  border-radius: 12px;
- padding: 20px;
+ padding: 10px;
  text-align: center;
  font-size: 18px;
  cursor: pointer;
  transition: background 0.2s ease;
  user-select: none;
+ height: 120px; /* ให้ความสูงสม่ำเสมอ */
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
 }
 .card:hover {
  background-color: #2d333b;
