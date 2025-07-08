@@ -57,27 +57,24 @@ h1 {
 }
 /* กริดของคำศัพท์ */
 .container {
- display: grid;
- grid-template-columns: 1fr 1fr;
- gap: 12px;
- margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
 }
-/* กล่องคำศัพท์ */
+
 .card {
- background-color: #1c1f26;
- border: 2px solid #2d333b;
- border-radius: 12px;
- padding: 10px;
- text-align: center;
- font-size: 18px;
- cursor: pointer;
- transition: background 0.2s ease;
- user-select: none;
- height: 120px; /* ให้ความสูงสม่ำเสมอ */
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
+  background-color: #1c1f26;
+  border: 2px solid #2d333b;
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+  user-select: none;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .card:hover {
  background-color: #2d333b;
@@ -134,8 +131,8 @@ button:hover {
  transition: background-color 0.3s ease;
 }
 #categorySelection button img {
- width: 60px;
- height: 60px;
+ width: 40px;
+ height: 40px;
  margin-bottom: 8px;
 }
 /* Responsive */
