@@ -67,7 +67,7 @@ h1 {
 .column {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
   flex: 1;
 }
 #gameArea {
@@ -76,7 +76,7 @@ h1 {
   justify-content: center; /* แนวตั้งกึ่งกลาง */
   align-items: center;     /* แนวนอนกึ่งกลาง */
   height: 100vh;           /* ความสูงเต็มหน้าจอ */
-  padding: 20px;
+  padding: 10px;
   box-sizing: border-box;
 }
 .card {
