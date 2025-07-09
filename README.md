@@ -76,7 +76,7 @@ h1 {
   justify-content: center; /* แนวตั้งกึ่งกลาง */
   align-items: center;     /* แนวนอนกึ่งกลาง */
   height: 100vh;           /* ความสูงเต็มหน้าจอ */
-  padding: 10px;
+  padding: 8px;
   box-sizing: border-box;
 }
 .card {
