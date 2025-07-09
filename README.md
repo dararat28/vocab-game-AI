@@ -83,13 +83,13 @@ h1 {
   background-color: #1c1f26;
   border: 2px solid #2d333b;
   border-radius: 12px;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
   font-size: 18px;
   cursor: pointer;
   user-select: none;
   height: 80px;
-  width: 200px;  /* ✅ เพิ่มความกว้างช่องคำศัพท์ */
+  width: 150px;  /* ✅ เพิ่มความกว้างช่องคำศัพท์ */
   display: flex;
   align-items: center;
   justify-content: center;
