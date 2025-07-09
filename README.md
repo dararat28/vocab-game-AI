@@ -89,7 +89,7 @@ h1 {
   cursor: pointer;
   user-select: none;
   height: 80px;
-  width: 100px;  /* ✅ เพิ่มความกว้างช่องคำศัพท์ */
+  width: 200px;  /* ✅ เพิ่มความกว้างช่องคำศัพท์ */
   display: flex;
   align-items: center;
   justify-content: center;
