@@ -59,7 +59,7 @@ h1 {
 .container {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 12px;
   width: 100%;
   max-width: 1600px;
 }
