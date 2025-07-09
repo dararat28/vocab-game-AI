@@ -83,7 +83,7 @@ h1 {
   background-color: #1c1f26;
   border: 2px solid #2d333b;
   border-radius: 12px;
-  padding: 5px;
+  padding: 5px 15px 5px 15px;
   text-align: center;
   font-size: 18px;
   cursor: pointer;
