@@ -88,7 +88,7 @@ h1 {
   font-size: 18px;
   cursor: pointer;
   user-select: none;
-  height: 80px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
