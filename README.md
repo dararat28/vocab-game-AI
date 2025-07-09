@@ -61,7 +61,7 @@ h1 {
   justify-content: center;
   gap: 12px;
   width: 100%;
-  max-width: 2000px;
+  max-width: 900px;
 }
 /* แต่ละคอลัมน์ให้กว้างเท่ากัน */
 .column {
