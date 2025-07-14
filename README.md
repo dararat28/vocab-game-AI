@@ -300,7 +300,6 @@ button:hover {
       {en:"Crocodile", th:"จระเข้", img:"https://img.icons8.com/?size=100&id=2pO02-vVjy-O&format=png&color=000000"},
       {en:"Duck", th:"เป็ด", img:"https://img.icons8.com/?size=100&id=30929&format=png&color=000000"},
       {en:"Chicken", th:"ไก่", img:"https://img.icons8.com/?size=100&id=101707&format=png&color=000000"},
-      {en:"Fish", th:"ปลา", img:"https://img.icons8.com/?size=100&id=On7Klul3EITI&format=png&color=000000"},
       {en:"tiger", th:"เสือ", img:"https://img.icons8.com/?size=100&id=I5OML1bajbP2&format=png&color=000000"}
     ],
     number: [
